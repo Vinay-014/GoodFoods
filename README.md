@@ -222,10 +222,10 @@ Customer NPS,+25,+45,⬆️ 20 pts
 Cost per Booking,$8.50,$3.40,⬇️ 60%
 
 ### ROI Analysis
-Implementation Cost: $150K (one-time) + $25K/month
-Per Location Annual Benefit: $210K ($125K revenue + $85K savings)
-Break-even: 3 months for 10-location chain
-Annual ROI: 340%
+* Implementation Cost: $150K (one-time) + $25K/month
+* Per Location Annual Benefit: $210K ($125K revenue + $85K savings)
+* Break-even: 3 months for 10-location chain
+* Annual ROI: 340%
 
 ### Competitive Advantages
 1. Context-Aware Intelligence
