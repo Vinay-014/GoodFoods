@@ -33,7 +33,7 @@ GoodFoods AI Reservation System is an enterprise-grade solution that transforms 
 - 💫 **Smart Recommendations** - Context-aware suggestions
 - 📊 **Business Intelligence** - Real-time analytics dashboard
 - 🔧 **Custom Tool Calling** - MCP-inspired architecture
-- 📱 **Professional UI** - Streamlit frontend with dark/light themes
+- 📱 **UI** - Streamlit frontend with dark/light themes
 
 ## ⚡ Quick Setup
 
@@ -138,26 +138,26 @@ Always maintain natural conversation flow.
 
 ### 1. Reservation Booking
 
-**User:** I want to book a table for 4 people tomorrow night.  
-**AI:** Absolutely! May I know your preferred cuisine and location?  
-**User:** Italian food in Downtown.  
-**AI:** Great choice. Bella Vita has a table for 4 tomorrow at 7 PM. Should I proceed with your booking?  
-**User:** Yes, please book it.  
-**AI:** Perfect! Could you provide your name, phone number, and email to complete the reservation?
+**👤:** I want to book a table for 4 people tomorrow night.  
+**🤖:** Absolutely! May I know your preferred cuisine and location?  
+**👤:** Italian food in Downtown.  
+**🤖:** Great choice. Bella Vita has a table for 4 tomorrow at 7 PM. Should I proceed with your booking?  
+**👤:** Yes, please book it.  
+**🤖:** Perfect! Could you provide your name, phone number, and email to complete the reservation?
 
 ---
 
 ### 2. Smart Recommendation
 
-**User:** Looking for a romantic restaurant for our anniversary.  
-**AI:** Happy anniversary! 🎉 Here are some recommendations:  
+**👤:** Looking for a romantic restaurant for our anniversary.  
+**🤖:** Happy anniversary! 👩🏻‍❤️‍👨🏻 Here are some recommendations:  
 - **Sapore Italiano**: Candlelit dining, live music  
 - **Le Jardin Français**: Romantic garden setting  
 - **Spice Route**: Intimate exotic cuisine  
 Would you like more details about any of these?
 
-**User:** Tell me more about Sapore Italiano.  
-**AI:** Sapore Italiano offers authentic Italian cuisine in a candlelit setting with live violin music.  
+**👤:** Tell me more about Sapore Italiano.  
+**🤖:** Sapore Italiano offers authentic Italian cuisine in a candlelit setting with live violin music.  
 Rating: ⭐ 4.7 | Price: $$$ | Location: Downtown  
 Availability: 2 people, Friday at 8 PM.
 
@@ -165,8 +165,8 @@ Availability: 2 people, Friday at 8 PM.
 
 ### 3. Multi-Criteria Search
 
-**User:** Find a family-friendly Mexican restaurant in Midtown for 6 people with outdoor seating.  
-**AI:** Here are some great options for your family:  
+**👤:** Find a family-friendly Mexican restaurant in Midtown for 6 people with outdoor seating.  
+**🤖:** Here are some great options for your family:  
 1. **Casa Mexicana** — Large patio, kids menu, ⭐ 4.5  
 2. **Fiesta Grill** — Play area, family deals, ⭐ 4.3  
 3. **Taqueria Familiar** — Outdoor garden, ⭐ 4.6  
@@ -176,12 +176,12 @@ All can accommodate 6 people with outdoor seating.
 
 ### 4. Reservation Management
 
-**User:** I need to cancel my reservation.  
-**AI:** May I have your reservation confirmation number?  
-**User:** It's RES_A1B2C3D4.  
-**AI:** Found your reservation for John Doe at Bella Vita, tomorrow at 7 PM for 4 people. Shall I cancel this reservation?  
-**User:** Yes, please cancel.  
-**AI:** ✅ Reservation RES_A1B2C3D4 has been successfully cancelled.
+**👤:** I need to cancel my reservation.  
+**🤖:** May I have your reservation confirmation number?  
+**👤:** It's RES_A1B2C3D4.  
+**🤖:** Found your reservation for John Doe at Bella Vita, tomorrow at 7 PM for 4 people. Shall I cancel this reservation?  
+**👤:** Yes, please cancel.  
+**🤖:** ✅ Reservation RES_A1B2C3D4 has been successfully cancelled.
 
 
 
