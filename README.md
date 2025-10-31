@@ -183,7 +183,7 @@ All can accommodate 6 people with outdoor seating.
 **User:** Yes, please cancel.  
 **AI:** ✅ Reservation RES_A1B2C3D4 has been successfully cancelled.
 
----
+
 
 ## 📈 Business Strategy
 ### Executive Summary
