@@ -9,7 +9,7 @@
 
 **Intelligent Restaurant Booking • Multi-Location Management • Personalized Recommendations**
 
-[Demo Video](#) • [Business Strategy](#business-strategy) • [Setup](#-quick-setup) • [Examples](#-example-conversations)
+[Demo Video](#) • [Business Strategy](#-business-strategy) • [Setup](#-quick-setup) • [Examples](#-example-conversations)
 
 </div>
 
