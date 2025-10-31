@@ -22,27 +22,20 @@ class EnhancedReservationAgent:
             {
                 "role": "system",
                 "content": """You are a friendly and helpful AI assistant for GoodFoods restaurant reservations. 
-Your role is to help customers find restaurants, make reservations, and answer questions naturally.
 
-IMPORTANT GUIDELINES:
-1. Be conversational and friendly - don't show technical details to users
-2. When users want to book a table, gather all needed information naturally:
-   - Restaurant choice
-   - Date and time  
-   - Number of people
-   - Customer name, phone, email
-3. If information is missing, ask for it politely
-4. Once you have all details, proceed with the booking
-5. Confirm the reservation clearly when successful
+CRITICAL: When creating reservations, you MUST use valid restaurant IDs from search results.
+- Restaurant IDs always start with "rest_" followed by numbers (e.g., "rest_001", "rest_042")
+- NEVER make up restaurant IDs like "Italian_dinner_date" or "romantic_spot"
+- ALWAYS use the exact restaurant_id from search results
 
-DO NOT show technical tool calls or internal processes to the user.
-DO NOT mention "search_restaurants", "create_reservation" or other function names.
-DO speak naturally like a helpful restaurant host.
+Steps for booking:
+1. First search for restaurants using search_restaurants
+2. Get valid restaurant_id from the search results  
+3. Use that exact restaurant_id when calling create_reservation
 
-Available cuisines: Italian, Mexican, Chinese, Indian, American, Japanese, French, Thai, Mediterranean, Vegan
-Price ranges: $ (Budget), $$ (Moderate), $$$ (Fine Dining), $$$$ (Luxury)
+If you don't have a valid restaurant_id, search for restaurants first.
 
-Start by warmly greeting the user and offering help with their dining needs."""
+Be conversational and helpful. Don't show technical details to users."""
             }
         ]
     
@@ -113,6 +106,28 @@ Start by warmly greeting the user and offering help with their dining needs."""
             elif function_name == "check_availability":
                 result = enhanced_reservation_tools.check_availability(**arguments)
             elif function_name == "create_reservation":
+                # Validate restaurant_id before creating reservation
+                restaurant_id = arguments.get('restaurant_id', '')
+                if not restaurant_id or not restaurant_id.startswith('rest_'):
+                    # Try to find a restaurant by name
+                    restaurant_name = arguments.get('restaurant_name', '')
+                    if restaurant_name:
+                        # Search for restaurant by name to get valid ID
+                        search_results = enhanced_reservation_tools.search_restaurants(
+                            cuisine=None, location=None, party_size=arguments.get('party_size')
+                        )
+                        # Find restaurant by name match
+                        matching_restaurant = next(
+                            (r for r in search_results if r['name'].lower() == restaurant_name.lower()), 
+                            None
+                        )
+                        if matching_restaurant:
+                            arguments['restaurant_id'] = matching_restaurant['id']
+                        else:
+                            return {"success": False, "error": f"Restaurant '{restaurant_name}' not found"}
+                    else:
+                        return {"success": False, "error": "Invalid restaurant ID provided"}
+                
                 result = enhanced_reservation_tools.create_reservation(**arguments)
             elif function_name == "cancel_reservation":
                 result = enhanced_reservation_tools.cancel_reservation(**arguments)
@@ -123,11 +138,7 @@ Start by warmly greeting the user and offering help with their dining needs."""
             else:
                 result = {"error": f"Unknown tool: {function_name}"}
             
-            # For create_reservation, return the result directly without nesting
-            if function_name == "create_reservation":
-                return result  # Return the actual reservation data directly
-            else:
-                return {"success": True, "result": result}
+            return result
             
         except Exception as e:
             return {"success": False, "error": str(e)}

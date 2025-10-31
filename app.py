@@ -199,53 +199,33 @@ with tab2:
                                 st.rerun()
     
     with col2:
-        # Reservation confirmation - FIXED
+        # Reservation confirmation - SIMPLIFIED
         if "create_reservation" in st.session_state.tool_results:
             reservation_data = st.session_state.tool_results["create_reservation"]
             
-            # Handle the actual reservation data structure
             if isinstance(reservation_data, dict):
                 if reservation_data.get("success"):
-                    # The actual reservation data is in the "result" key
-                    reservation_result = reservation_data.get("result", {})
+                    # Success case
+                    st.success("### 🎉 Reservation Confirmed!")
+                    st.markdown(f"**Confirmation #:** `{reservation_data.get('confirmation_number', reservation_data.get('reservation_id', 'N/A'))}`")
+                    st.markdown(f"**Restaurant:** {reservation_data.get('restaurant_name', 'N/A')}")
+                    st.markdown(f"**Guest:** {reservation_data.get('customer_name', 'N/A')}")
+                    st.markdown(f"**Date:** {reservation_data.get('date', 'N/A')}")
+                    st.markdown(f"**Time:** {reservation_data.get('time', 'N/A')}")
+                    st.markdown(f"**Party Size:** {reservation_data.get('party_size', 'N/A')}")
                     
-                    # Check if it's already the final reservation data
-                    if isinstance(reservation_result, dict) and reservation_result.get("success"):
-                        # Nested structure: data -> result -> actual reservation
-                        actual_reservation = reservation_result.get("result", {})
-                    else:
-                        # Direct structure: data -> actual reservation  
-                        actual_reservation = reservation_result
-                st.success("### 🎉 Reservation Confirmed!")
-                # Display all available reservation data for debugging
-                st.markdown(f"**Confirmation #:** `{actual_reservation.get('confirmation_number', actual_reservation.get('reservation_id', 'N/A'))}`")
-                st.markdown(f"**Restaurant:** {actual_reservation.get('restaurant_name', 'N/A')}")
-                st.markdown(f"**Guest:** {actual_reservation.get('customer_name', 'N/A')}")
-                st.markdown(f"**Date:** {actual_reservation.get('date', 'N/A')}")
-                st.markdown(f"**Time:** {actual_reservation.get('time', 'N/A')}")
-                st.markdown(f"**Party Size:** {actual_reservation.get('party_size', 'N/A')}")
+                    if reservation_data.get('special_requests'):
+                        st.info(f"**Special Requests:** {reservation_data['special_requests']}")
                     
-                    # Show special requests if available
-                if actual_reservation.get('special_requests'):
-                        st.info(f"**Special Requests:** {actual_reservation['special_requests']}")
+                    st.balloons()
+                else:
+                    # Error case - show detailed error info
+                    error_msg = reservation_data.get('message') or reservation_data.get('error') or 'Unknown error'
+                    st.error(f"❌ Reservation failed: {error_msg}")
                     
-                st.balloons()
-                 # Debug: Show raw data
-                with st.expander("🔧 Debug Info"):
-                        st.write("Raw reservation data:", reservation_data)
-            else:
-                st.error(f"❌ Reservation failed: {reservation_data.get('error', 'Unknown error')}")
-        
-        # Active reservations
-        if enhanced_reservation_tools.reservations:
-            st.markdown("### 📅 Your Reservations")
-            for res in enhanced_reservation_tools.reservations[-3:]:
-                with st.expander(f"{res.customer_name} - {res.reservation_date}"):
-                    restaurant = next((r for r in enhanced_reservation_tools.restaurants if r.id == res.restaurant_id), None)
-                    if restaurant:
-                        st.markdown(f"**Restaurant:** {restaurant.name}")
-                    st.markdown(f"**Time:** {res.reservation_time}")
-                    st.markdown(f"**Party:** {res.party_size} people")
+                    # Debug info
+                    with st.expander("🔧 Debug Details"):
+                        st.write("Full error data:", reservation_data)
 
 with tab3:
     st.markdown("### 📊 Business Analytics")

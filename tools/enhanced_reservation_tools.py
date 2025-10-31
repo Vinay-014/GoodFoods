@@ -146,61 +146,58 @@ class EnhancedReservationTools:
                           special_requests: str = "") -> Dict[str, Any]:
         """
         Create a new restaurant reservation with customer details and special requests.
-        
-        Args:
-            restaurant_id: ID of the restaurant to book
-            customer_name: Full name of the customer
-            customer_phone: Contact phone number
-            customer_email: Contact email address
-            party_size: Number of people in the party
-            date: Reservation date in YYYY-MM-DD format
-            time: Reservation time in HH:MM format
-            special_requests: Any special requirements or dietary needs
         """
-        # Validate inputs
-        validation_result = self._validate_reservation_inputs(
-            customer_name, customer_phone, customer_email, party_size, date, time
-        )
-        if not validation_result["valid"]:
-            return {"success": False, "message": validation_result["message"]}
-        
-        # Check availability
-        availability = self.check_availability(restaurant_id, date, time, party_size)
-        if not availability["available"]:
-            return {"success": False, "message": availability["message"]}
-        
-        # Create reservation
-        reservation = Reservation(
-            id=f"RES_{uuid.uuid4().hex[:8].upper()}",
-            restaurant_id=restaurant_id,
-            customer_name=customer_name,
-            customer_phone=customer_phone,
-            customer_email=customer_email,
-            party_size=party_size,
-            reservation_date=date,
-            reservation_time=time,
-            special_requests=special_requests,
-            created_at=datetime.now().isoformat()
-        )
-        
-        # Update restaurant occupancy
-        restaurant = next(r for r in self.restaurants if r.id == restaurant_id)
-        restaurant.current_reservations += 1
-        
-        self.reservations.append(reservation)
-        
-        return {
-            "success": True,
-            "reservation_id": reservation.id,
-            "confirmation_number": reservation.id,
-            "restaurant_name": restaurant.name,
-            "customer_name": customer_name,
-            "party_size": party_size,
-            "date": date,
-            "time": time,
-            "special_requests": special_requests,
-            "message": f"🎉 Reservation confirmed! Your confirmation number is {reservation.id}"
-        }
+        try:
+            # Validate inputs
+            validation_result = self._validate_reservation_inputs(
+                customer_name, customer_phone, customer_email, party_size, date, time
+            )
+            if not validation_result["valid"]:
+                return {"success": False, "message": validation_result["message"]}
+
+            # Check availability
+            availability = self.check_availability(restaurant_id, date, time, party_size)
+            if not availability["available"]:
+                return {"success": False, "message": availability["message"]}
+
+            # Create reservation
+            reservation = Reservation(
+                id=f"RES_{uuid.uuid4().hex[:8].upper()}",
+                restaurant_id=restaurant_id,
+                customer_name=customer_name,
+                customer_phone=customer_phone,
+                customer_email=customer_email,
+                party_size=party_size,
+                reservation_date=date,
+                reservation_time=time,
+                special_requests=special_requests,
+                created_at=datetime.now().isoformat()
+            )
+
+            # Update restaurant occupancy
+            restaurant = next((r for r in self.restaurants if r.id == restaurant_id), None)
+            if restaurant:
+                restaurant.current_reservations += 1
+            else:
+                return {"success": False, "message": "Restaurant not found"}
+
+            self.reservations.append(reservation)
+
+            return {
+                "success": True,
+                "reservation_id": reservation.id,
+                "confirmation_number": reservation.id,
+                "restaurant_name": restaurant.name,
+                "customer_name": customer_name,
+                "party_size": party_size,
+                "date": date,
+                "time": time,
+                "special_requests": special_requests,
+                "message": f"🎉 Reservation confirmed! Your confirmation number is {reservation.id}"
+            }
+            
+        except Exception as e:
+            return {"success": False, "error": str(e)}
     
     @tool_registry.register_tool
     def cancel_reservation(self, reservation_id: str) -> Dict[str, Any]:
