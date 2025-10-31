@@ -212,16 +212,19 @@ GoodFoods addresses critical inefficiencies in multi-location restaurant managem
 * Annual ROI: 340%
 
 ### Competitive Advantages
-1. Context-Aware Intelligence
-* ML-driven recommendations based on occasion, preferences, history
-* Real-time availability with external factors (weather, events)
-2. Conversational Commerce Platform
-* Natural language understanding for complex queries
-* Multi-intent handling in single conversation
-3. Unified Data Ecosystem
-* Cross-location analytics and forecasting
-* Customer lifetime value tracking
-* Predictive demand modeling
+
+1. **Context-Aware Intelligence**
+   - Machine learning-driven recommendations tailored to occasion, user preferences, and booking history
+   - Real-time availability updates considering external factors such as weather and local events
+
+2. **Conversational Commerce Platform**
+   - Advanced natural language understanding for complex reservation and recommendation queries
+   - Multi-intent handling within a single conversational flow for seamless user experience
+
+3. **Unified Data Ecosystem**
+   - Cross-location analytics, forecasting, and reporting for operational insights
+   - Tracking customer lifetime value and predictive demand modeling to inform business decisions
+
 
 ### Expansion Strategy
 * Phase 1 (Months 1-3): GoodFoods chain rollout
@@ -236,50 +239,52 @@ GoodFoods addresses critical inefficiencies in multi-location restaurant managem
 * Data: In-memory with sample dataset
 * Protocol: MCP-inspired tool calling
 ### 2. Core Components
-1. Enhanced Reservation Agent
-* Natural language processing
-* Intent classification
-2. Tool orchestration
-* Tool Registry
-* MCP protocol implementation
-* Type conversion and validation
-* Error handling
-3. Recommendation Engine
-* Occasion-based filtering
-* Relevance scoring
-* Personalized reasoning
+
+1. **Enhanced Reservation Agent**
+   - Natural language processing for user-friendly interactions
+   - Intent classification to determine the user's needs (search, book, recommend, manage)
+
+2. **Tool Orchestration**
+   - Centralized tool registry following MCP protocol for reliable orchestration
+   - Type conversion, validation, and error handling to ensure robust tool execution
+
+3. **Recommendation Engine**
+   - Occasion-based filtering and personalized reasoning for each user
+   - Relevance scoring to deliver the most suitable restaurant suggestions
 
 
 ## ⚠️ Assumptions & Limitations
 ### Current Assumptions
-1. Data Persistence
-* In-memory storage (resets on server restart)
-* Sample dataset of 75 restaurants
-2. Integration Scope
-* No real POS system integration
-* Simplified payment processing
-* Basic notification system
-3. Scale Considerations
-* Designed for 100+ locations
-* Concurrent user handling via Streamlit
-* API rate limits managed via Groq
 
+1. **Data Persistence**
+   - In-memory storage resets on server restart; no persistent database in the current version
+   - Sample dataset includes 75 restaurants
+
+2. **Integration Scope**
+   - No integration with real POS systems; payment processing is simplified
+   - Basic notification system for booking confirmations
+
+3. **Scale Considerations**
+   - Designed to support 100+ locations with concurrent user handling via Streamlit
+   - API rate limits managed through Groq
 
 ### Known Limitations
-1. Data Persistence
-* Reservations lost on application restart
-* No database integration in current version
-2. Real-time Sync
-* No live table availability across real locations
-* Simplified capacity management
-3. Feature Scope
-* Basic user authentication
-* Limited payment integration
-* Simplified notification system
-4. API Dependencies
-* Requires Groq API connectivity
-* Subject to API rate limits
-* No offline functionality
+
+1. **Data Persistence**
+   - All reservation data is lost upon application/server restart
+   - No integration with external databases
+
+2. **Real-Time Sync**
+   - Does not support live table availability across physical locations
+   - Capacity management is simplified
+
+3. **Feature Scope**
+   - Basic user authentication only
+   - Limited payment and notification integrations
+
+4. **API Dependencies**
+   - Requires active Groq API connectivity; subject to API rate limits
+   - No offline functionality
 
 
 ## 🚀 Future Enhancements
