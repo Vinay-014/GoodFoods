@@ -224,18 +224,18 @@ GoodFoods addresses critical inefficiencies in multi-location restaurant managem
 * Predictive demand modeling
 
 ### Expansion Strategy
-Phase 1 (Months 1-3): GoodFoods chain rollout
-Phase 2 (Months 4-6): Multi-tenant platform for other chains
-Phase 3 (Months 7-12): Hotel restaurants, event venues, corporate catering
+* Phase 1 (Months 1-3): GoodFoods chain rollout
+* Phase 2 (Months 4-6): Multi-tenant platform for other chains
+* Phase 3 (Months 7-12): Hotel restaurants, event venues, corporate catering
 
 ## 🏗️ System Architecture
-1. Technical Stack
+### 1. Technical Stack
 * Frontend: Streamlit with custom CSS
 * AI Agent: Custom tool-calling architecture
 * LLM: Groq + Llama 3.3 70B
 * Data: In-memory with sample dataset
 * Protocol: MCP-inspired tool calling
-2. Core Components
+### 2. Core Components
 1. Enhanced Reservation Agent
 * Natural language processing
 * Intent classification
@@ -317,34 +317,3 @@ This project is proprietary software developed for GoodFoods Restaurant Chain. A
 Built with ❤️ for the Future of Restaurant Hospitality
 Transforming dining experiences through intelligent AI solutions
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
