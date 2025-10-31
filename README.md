@@ -74,6 +74,7 @@ streamlit run app.py
 ```
 
 ## File Structure
+```txt
 GoodFoods/
 ├── app.py                          # Main Streamlit application
 ├── agents/
@@ -81,21 +82,21 @@ GoodFoods/
 │   └── __init__.py
 ├── tools/
 │   ├── enhanced_reservation_tools.py  # Reservation operations
-│   ├── tool_registry.py           # MCP-inspired tool registry
+│   ├── tool_registry.py               # MCP-inspired tool registry
 │   └── __init__.py
 ├── models/
-│   ├── restaurant.py              # Data models
+│   ├── restaurant.py                  # Data models
 │   └── __init__.py
 ├── data/
-│   └── sample_restaurants.py      # 75+ restaurant dataset
+│   └── sample_restaurants.py          # 75+ restaurant dataset
 ├── utils/
-│   ├── llm_client.py              # Groq API client
+│   ├── llm_client.py                  # Groq API client
 │   └── __init__.py
-├── config.py                      # Configuration
-├── requirements.txt               # Dependencies
-├── business_strategy.md           # Comprehensive business analysis
-└── README.md                      # This file
-
+├── config.py                          # Configuration
+├── requirements.txt                   # Dependencies
+├── business_strategy.md               # Comprehensive business analysis
+└── README.md                          # This file
+```
 
 ## 🎯 Prompt Engineering Approach
 ### System Prompt Design
@@ -134,75 +135,55 @@ Always maintain natural conversation flow.
 
 
 ## 💬 Example Conversations
-### 1. Basic Reservation Journey
 
+### 1. Reservation Booking
 
-User: I want to book a table for 4 people tomorrow night
+**User:** I want to book a table for 4 people tomorrow night.  
+**AI:** Absolutely! May I know your preferred cuisine and location?  
+**User:** Italian food in Downtown.  
+**AI:** Great choice. Bella Vita has a table for 4 tomorrow at 7 PM. Should I proceed with your booking?  
+**User:** Yes, please book it.  
+**AI:** Perfect! Could you provide your name, phone number, and email to complete the reservation?
 
-AI: I'd be happy to help you book a table! What type of cuisine are you interested in, 
-and do you have a preferred location?
+---
 
-User: Italian food in Downtown
+### 2. Smart Recommendation
 
-AI: Great choice! I found several Italian restaurants in Downtown. 
-Bella Vita has availability for 4 people tomorrow at 7 PM. 
-Shall I proceed with the booking?
+**User:** Looking for a romantic restaurant for our anniversary.  
+**AI:** Happy anniversary! 🎉 Here are some recommendations:  
+- **Sapore Italiano**: Candlelit dining, live music  
+- **Le Jardin Français**: Romantic garden setting  
+- **Spice Route**: Intimate exotic cuisine  
+Would you like more details about any of these?
 
-User: Yes, please book it
+**User:** Tell me more about Sapore Italiano.  
+**AI:** Sapore Italiano offers authentic Italian cuisine in a candlelit setting with live violin music.  
+Rating: ⭐ 4.7 | Price: $$$ | Location: Downtown  
+Availability: 2 people, Friday at 8 PM.
 
-AI: Perfect! I'll need your name, phone number, and email to complete the reservation.
+---
 
+### 3. Multi-Criteria Search
 
+**User:** Find a family-friendly Mexican restaurant in Midtown for 6 people with outdoor seating.  
+**AI:** Here are some great options for your family:  
+1. **Casa Mexicana** — Large patio, kids menu, ⭐ 4.5  
+2. **Fiesta Grill** — Play area, family deals, ⭐ 4.3  
+3. **Taqueria Familiar** — Outdoor garden, ⭐ 4.6  
+All can accommodate 6 people with outdoor seating.
 
-### 2. Smart Recommendation Flow
-
-
-User: Looking for a romantic restaurant for anniversary
-
-AI: Happy anniversary! 🎉 For a special occasion, I recommend:
-- Sapore Italiano: Candlelit dining with live music
-- Le Jardin Français: Romantic ambiance with garden view
-- Spice Route: Intimate setting with exotic cuisine
-
-Which appeals to you most?
-
-User: Tell me more about Sapore Italiano
-
-AI: Sapore Italiano offers authentic Italian cuisine in a romantic setting.
-Features: Candlelit tables, wine pairings, live violin music.
-Rating: ⭐4.7 | Price: $$$ | Location: Downtown
-Available for 2 people Friday at 8 PM.
-
-
-### 3. Complex Multi-Criteria Search
-
-
-User: Find family-friendly Mexican restaurant in Midtown for 6 people with outdoor seating
-
-AI: I found 3 perfect matches for your family:
-1. Casa Mexicana - Large patio, kids menu, ⭐4.5
-2. Fiesta Grill - Play area, family deals, ⭐4.3  
-3. Taqueria Familiar - Outdoor garden, ⭐4.6
-
-All can accommodate 6 people with outdoor seating available.
-
+---
 
 ### 4. Reservation Management
 
+**User:** I need to cancel my reservation.  
+**AI:** May I have your reservation confirmation number?  
+**User:** It's RES_A1B2C3D4.  
+**AI:** Found your reservation for John Doe at Bella Vita, tomorrow at 7 PM for 4 people. Shall I cancel this reservation?  
+**User:** Yes, please cancel.  
+**AI:** ✅ Reservation RES_A1B2C3D4 has been successfully cancelled.
 
-User: I need to cancel my reservation
-
-AI: I can help with that. Do you have your reservation confirmation number?
-
-User: It's RES_A1B2C3D4
-
-AI: Found your reservation for John Doe at Bella Vita, tomorrow at 7 PM for 4 people.
-Shall I cancel this reservation?
-
-User: Yes, please cancel
-
-AI: ✅ Reservation RES_A1B2C3D4 has been successfully cancelled.
-
+---
 
 ## 📈 Business Strategy
 ### Executive Summary
@@ -215,11 +196,14 @@ GoodFoods addresses critical inefficiencies in multi-location restaurant managem
 * Data Fragmentation: No unified view of customer preferences
 
 ## Success Metrics
-Metric,Current,Target,Improvement
-Staff Time on Reservations,30%,12%,⬇️ 60%
-Table Utilization,65%,81%,⬆️ 25%
-Customer NPS,+25,+45,⬆️ 20 pts
-Cost per Booking,$8.50,$3.40,⬇️ 60%
+
+| Metric                    | Current | Target | Improvement      |
+|---------------------------|---------|--------|------------------|
+| Staff Time on Reservations|   30%   |  12%   | ⬇️ 60%           |
+| Table Utilization         |   65%   |  81%   | ⬆️ 25%           |
+| Customer NPS              |   +25   |  +45   | ⬆️ 20 pts        |
+| Cost per Booking          | $8.50   | $3.40  | ⬇️ 60%           |
+
 
 ### ROI Analysis
 * Implementation Cost: $150K (one-time) + $25K/month
