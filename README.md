@@ -314,11 +314,3 @@ GoodFoods addresses critical inefficiencies in multi-location restaurant managem
 * Sentiment Analysis - Customer feedback processing
 * Personalized Menus - AI-generated menu recommendations
 * Cross-sell Engine - Wine pairings, dessert suggestions
-
-
-## 📄 License
-This project is proprietary software developed for GoodFoods Restaurant Chain. All rights reserved.
-
-Built with ❤️ for the Future of Restaurant Hospitality
-Transforming dining experiences through intelligent AI solutions
-```
