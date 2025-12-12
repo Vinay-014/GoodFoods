@@ -1,4 +1,4 @@
-# 🍽️ GoodFoods AI Restaurant Reservation System
+# 🍽️ GoodFoods AI Restaurant Reservation Agent
 
 <div align="center">
 
