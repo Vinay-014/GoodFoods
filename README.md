@@ -18,12 +18,12 @@
 GoodFoods AI Reservation System is an enterprise-grade solution that transforms restaurant booking through conversational AI. The system handles complex multi-location reservations, provides intelligent recommendations, and delivers actionable business analytics.
 
 ### Key Features
-- 🤖 **AI-Powered Conversations** - Natural language reservations
-- 🍽️ **75+ Restaurant Network** - Multi-location management  
-- 💫 **Smart Recommendations** - Context-aware suggestions
-- 📊 **Business Intelligence** - Real-time analytics dashboard
-- 🔧 **Custom Tool Calling** - MCP-inspired architecture
-- 📱 **UI** - Streamlit frontend with dark/light themes
+-  **AI-Powered Conversations** - Natural language reservations
+-  **75+ Restaurant Network** - Multi-location management  
+-  **Smart Recommendations** - Context-aware suggestions
+-  **Business Intelligence** - Real-time analytics dashboard
+-  **Custom Tool Calling** - MCP-inspired architecture
+-  **UI** - Streamlit frontend
 
 ##  Quick Setup
 
