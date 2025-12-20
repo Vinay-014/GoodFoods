@@ -13,17 +13,7 @@
 
 </div>
 
-## 📋 Table of Contents
-- [Overview](#-overview)
-- [Quick Setup](#-quick-setup)
-- [Prompt Engineering](#-prompt-engineering-approach)
-- [Example Conversations](#-example-conversations)
-- [Business Strategy](#-business-strategy)
-- [Architecture](#-system-architecture)
-- [Assumptions & Limitations](#-assumptions--limitations)
-- [Future Enhancements](#-future-enhancements)
-
-## 🚀 Overview
+##  Overview
 
 GoodFoods AI Reservation System is an enterprise-grade solution that transforms restaurant booking through conversational AI. The system handles complex multi-location reservations, provides intelligent recommendations, and delivers actionable business analytics.
 
@@ -35,7 +25,7 @@ GoodFoods AI Reservation System is an enterprise-grade solution that transforms 
 - 🔧 **Custom Tool Calling** - MCP-inspired architecture
 - 📱 **UI** - Streamlit frontend with dark/light themes
 
-## ⚡ Quick Setup
+##  Quick Setup
 
 ### Prerequisites
 - Python 3.12+
@@ -98,7 +88,7 @@ GoodFoods/
 └── README.md                          # This file
 ```
 
-## 🎯 Prompt Engineering Approach
+##  Prompt Engineering Approach
 ### System Prompt Design
 system_prompt = """
 You are a friendly AI assistant for GoodFoods restaurant reservations.
@@ -231,7 +221,7 @@ GoodFoods addresses critical inefficiencies in multi-location restaurant managem
 * Phase 2 (Months 4-6): Multi-tenant platform for other chains
 * Phase 3 (Months 7-12): Hotel restaurants, event venues, corporate catering
 
-## 🏗️ System Architecture
+##  System Architecture
 ### 1. Technical Stack
 * Frontend: Streamlit with custom CSS
 * AI Agent: Custom tool-calling architecture
@@ -287,7 +277,7 @@ GoodFoods addresses critical inefficiencies in multi-location restaurant managem
    - No offline functionality
 
 
-## 🚀 Future Enhancements
+##  Future Enhancements
 ### Short-term (1-3 months)
 * Database Integration - PostgreSQL for persistence
 * User Authentication - JWT-based security
